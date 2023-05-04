@@ -8,7 +8,7 @@ import pickle
 
 
 # Here we load in the data in the format that Notion exports it in.
-ps = list(Path("notion-qa/").glob("**/*.md"))
+ps = list(Path("notion-qa\").glob(""**/*.md"))
 
 data = []
 sources = []
@@ -32,5 +32,5 @@ for i, d in enumerate(data):
 store = FAISS.from_texts(docs, OpenAIEmbeddings(), metadatas=metadatas)
 faiss.write_index(store.index, "docs.index")
 store.index = None
-with open("faiss_store.pkl", "wb") as f:
+with open("faiss_store.pkl", "ab+") as f:
     pickle.dump(store, f)
