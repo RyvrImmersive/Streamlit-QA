@@ -27,7 +27,7 @@ import pickle
 # Load the LangChain.
 index = faiss.read_index("docs.index")
 
-with open("faiss_store.pkl", "ab+") as f:
+with open("faiss_store.pkl", "rb") as f:
     store = pickle.load(f)
 
 store.index = index
